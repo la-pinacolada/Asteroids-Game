@@ -3,9 +3,20 @@ import pygame
 
 class GameConfig:
     pygame.init()
-    pygame.display.set_caption("Arcade Asteroid")
     WINDOW_W = 800
     WINDOW_H = 800
+    health = 3
+    score = 0
+    meilleurScore = 0
+    bonus_init = -1
+    count = 0
+    playerBullets = []
+    asteroids = []
+    stars = []
+    aliens = []
+    alienBullets = []
+    window = pygame.display.set_mode((WINDOW_W, WINDOW_H))
+    clock = pygame.time.Clock()
 
     background = pygame.image.load('images/Background.png')
     ennemi = pygame.image.load('images/Ennemi.png')
@@ -15,13 +26,11 @@ class GameConfig:
     meteorite_moyenne = pygame.image.load('images/Meteorite_Moyenne.png')
     meteorite_grande = pygame.image.load('images/Meteorite_Grande.png')
 
-    Tir = pygame.mixer.Sound('sons/tir.mp3')
-    Explosion_2 = pygame.mixer.Sound('sons/Explosion_Ennemi.wav')
-    Explosion_1 = pygame.mixer.Sound('sons/Explosion.wav')
-    Tir.set_volume(.25)
-    Explosion_2.set_volume(.25)
-    Explosion_1.set_volume(.25)
-
-    window = pygame.display.set_mode((WINDOW_W, WINDOW_H))
-    clock = pygame.time.Clock()
-
+    def init():
+        GameConfig.background = pygame.image.load('images/Background.png')
+        GameConfig.ennemi = pygame.image.load('images/Ennemi.png')
+        GameConfig.playerRocket = pygame.image.load('images/Spaceship.png')
+        GameConfig.bonus = pygame.image.load('images/Bonus.png')
+        GameConfig.meteorite_petite = pygame.image.load('images/Meteorite_Petite.png')
+        GameConfig.meteorite_moyenne = pygame.image.load('images/Meteorite_Moyenne.png')
+        GameConfig.meteorite_grande = pygame.image.load('images/Meteorite_Grande.png')
